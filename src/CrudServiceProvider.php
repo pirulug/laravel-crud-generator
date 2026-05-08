@@ -10,35 +10,41 @@ use Illuminate\Support\ServiceProvider;
  */
 class CrudServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                CrudGenerator::class,
-            ]);
-        }
-
-        $this->publishes([
-            __DIR__.'/config/crud.php' => config_path('crud.php'),
-        ], 'crud');
-
-        $this->publishes([
-            __DIR__.'/../src/stubs' => resource_path('stubs/crud/'),
-        ], 'stubs-crud');
+  /**
+   * Bootstrap services.
+   *
+   * @return void
+   */
+  public function boot()
+  {
+    if ($this->app->runningInConsole()) {
+      $this->commands([
+        CrudGenerator::class,
+      ]);
     }
 
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
+    $this->loadJsonTranslationsFrom(__DIR__ . '/lang');
+
+    $this->publishes([
+      __DIR__ . '/config/crud.php' => config_path('crud.php'),
+    ], 'crud');
+
+    $this->publishes([
+      __DIR__ . '/lang' => lang_path('vendor/crud-generator'),
+    ], 'crud-lang');
+
+    $this->publishes([
+      __DIR__ . '/stubs' => resource_path('stubs/crud/'),
+    ], 'stubs-crud');
+  }
+
+  /**
+   * Register services.
+   *
+   * @return void
+   */
+  public function register()
+  {
+    $this->mergeConfigFrom(__DIR__ . '/config/crud.php', 'crud');
+  }
 }

@@ -12,15 +12,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class {{modelName}} extends Model
 {
-    {{softDeletes}}
-    protected $perPage = 20;
+  {{softDeletes}}
+  protected $perPage = 20;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [{{fillable}}];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = [{{fillable}}];
 
 {{relations}}
 }

@@ -1,29 +1,29 @@
 @extends('{{layout}}')
 
 @section('template_title')
-    {{ __('Actualizar') }} {{modelTitle}}
+  {{ __('Update') }} {{ __('{{modelTitle}}') }}
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+  <section class="content container-fluid">
+    <div class="">
+      <div class="col-md-12">
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Actualizar') }} {{modelTitle}}</span>
-                    </div>
-                    <div class="card-body bg-white">
-                        <form method="POST" action="{{ route('{{modelRoute}}.update', ${{modelNameLowerCase}}->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            @csrf
+        <div class="card card-default">
+          <div class="card-header">
+            <span class="card-title">{{ __('Update') }} {{ __('{{modelTitle}}') }}</span>
+          </div>
+          <div class="card-body bg-white">
+            <form method="POST" action="{{ route('{{modelRoute}}.update', ${{modelNameLowerCase}}->id) }}"  role="form" enctype="multipart/form-data">
+              {{ method_field('PATCH') }}
+              @csrf
 
-                            @include('{{modelView}}.form')
+              @include('{{modelView}}.form')
 
-                        </form>
-                    </div>
-                </div>
-            </div>
+            </form>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 @endsection

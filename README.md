@@ -8,12 +8,14 @@ This Laravel CRUD Generator v2.x package provides and generates Controller, Mode
 - Will create **API Controllers** with all requests
 - Will create **Component** with all resources for Livewire
 - Will create **views** in Bootstrap/Tailwind
+- Multi-language support (English, Spanish)
+- Custom translation support
 
 This is the best crud generator for a blank Laravel project installation too. This will auto install the starter kit [laravel/breeze](https://github.com/laravel/breeze) or [laravel/ui](https://github.com/laravel/ui) (for bootstrap 5) for blank Laravel installation.
 
 ## Requirements
     Laravel >= 10.x
-    PHP >= 8.1
+    PHP >= 8.2
 
 ## Installation
 1 - Install
@@ -108,6 +110,11 @@ php artisan make:crud {table_name} --route={route_name}
 *Bootstrap Form*
 ![Form](https://i.imgur.com/poRiZRO.png)
 
+
+## Testing
+```
+composer test
+```
 
 ## Personalize  
 You have the possibility of 100% customizing the generated views, this is achieved in the following way:    
